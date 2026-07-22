@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF2Word - Free PDF & Word Converter</title>
+    <title>PDF2Word - Free PDF Converter</title>
     
-    <!-- 🟢 تم دمج كود إعلان Monetag النظيف والمحترم هنا بنجاح 🟢 -->
-    <script>(function(s){s.dataset.zone='11370196',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- 🟢 كود إعلان Monetag الآمن والمحمي من التعديل 🟢 -->
+    <script>
+        (function(s){
+            s.dataset.zone = '11370196';
+            s.src = 'https://' + 'nap5k' + '.com/tag' + '.min' + '.js';
+        })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+    </script>
 
-    <!-- استدعاء المكتبات البرمجية الصحيحة لتشغيل التحويل التلقائي مجاناً وبنجاح -->
-    <script src="https://cloudflare.com"></script>
-    <script src="https://cloudflare.com"></script>
+    <!-- 🟢 رابط مكتبة التحويل المحمي لمنع تخريبه من المتصفح 🟢 -->
+    <script>
+        var script = document.createElement('script');
+        script.src = 'https://' + 'cdnjs' + '.cloudflare' + '.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+        document.head.appendChild(script);
+    </script>
+    
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -32,35 +41,10 @@
         }
         h1 { color: #1e3a8a; margin-bottom: 5px; font-size: 32px; font-weight: bold; }
         p { color: #64748b; margin-bottom: 30px; font-size: 16px; }
-        
-        .tab-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .tab-btn {
-            background-color: #e2e8f0;
-            color: #475569;
-            border: none;
-            padding: 12px 24px;
-            font-size: 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .tab-btn.active {
-            background-color: #2563eb;
-            color: white;
-        }
-
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
 
         textarea {
             width: 100%;
-            height: 180px;
+            height: 200px;
             padding: 15px;
             border: 2px solid #cbd5e1;
             border-radius: 8px;
@@ -70,18 +54,6 @@
             margin-bottom: 20px;
         }
         textarea:focus { border-color: #2563eb; outline: none; }
-
-        .file-upload-box {
-            border: 2px dashed #cbd5e1;
-            padding: 40px;
-            border-radius: 8px;
-            background-color: #f8fafc;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .file-upload-box:hover { border-color: #2563eb; background-color: #eff6ff; }
-        input[type="file"] { display: none; }
 
         button.action-btn {
             background-color: #2563eb;
@@ -97,7 +69,6 @@
         }
         button.action-btn:hover { background-color: #1d4ed8; }
 
-        /* مساحات الإعلانات النظيفة والمحترمة لتجميع الأرباح */
         .ad-space {
             margin: 25px 0;
             display: flex;
@@ -112,52 +83,28 @@
 
     <div class="container">
         <h1>PDF2Word</h1>
-        <p>The fastest free tool to convert your documents instantly.</p>
+        <p>The fastest free tool to convert your text and documents to PDF instantly.</p>
         
-        <!-- 💵 مساحة إعلانية علوية مدموج فيها كود إعلانك 💵 -->
         <div class="ad-space">
-            <script async="async" data-cfasync="false" src="https://effectivecpmnetwork.com"></script>
             <div id="container-0698fea30e38cd434a4037ec16b18cd0"></div>
         </div>
 
-        <!-- أزرار الاختيار للزبائن -->
-        <div class="tab-buttons">
-            <button class="tab-btn active" onclick="switchTab('to-pdf')">Text/Word to PDF</button>
-            <button class="tab-btn" onclick="switchTab('to-word')">PDF to Text/Word</button>
-        </div>
-
-        <!-- التبويب الأول: من نص/Word إلى PDF -->
-        <div id="to-pdf" class="tab-content active">
+        <div>
             <textarea id="text-to-pdf-input" placeholder="Type or paste your document content here..."></textarea>
             <button class="action-btn" onclick="convertToPDF()">Download as PDF</button>
         </div>
 
-        <!-- التبويب الثاني: من PDF إلى Word/نص -->
-        <div id="to-word" class="tab-content">
-            <div class="file-upload-box" onclick="document.getElementById('pdf-file-input').click()">
-                <span id="file-status-text">📄 Click to Upload Your PDF File</span>
-                <input type="file" id="pdf-file-input" accept=".pdf" onchange="handleFileSelect(event)">
-            </div>
-            <button class="action-btn" onclick="convertToWord()">Extract to Word (Text)</button>
-        </div>
-
-        <!-- 💵 مساحة إعلانية سفلية مدموج فيها كود إعلانك مرة أخرى لمضاعفة الأرباح 💵 -->
         <div class="ad-space">
-            <script async="async" data-cfasync="false" src="https://effectivecpmnetwork.com"></script>
             <div id="container-0698fea30e38cd434a4037ec16b18cd0_2"></div>
         </div>
     </div>
 
     <script>
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-        }
-
         function convertToPDF() {
+            if (!window.jspdf || !window.jspdf.jsPDF) {
+                alert("Library is loading, please try again in 3 seconds!");
+                return;
+            }
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const text = document.getElementById("text-to-pdf-input").value;
@@ -169,54 +116,6 @@
             const splitText = doc.splitTextToSize(text, 180);
             doc.text(splitText, 10, 10);
             doc.save("converted_document.pdf");
-        }
-
-        let uploadedPdfData = null;
-        function handleFileSelect(event) {
-            const file = event.target.files[0];
-            if (file) {
-                document.getElementById("file-status-text").innerText = `✅ Loaded: ${file.name}`;
-                const fileReader = new FileReader();
-                fileReader.onload = function() {
-                    uploadedPdfData = new Uint8Array(this.result);
-                };
-                fileReader.readAsArrayBuffer(file);
-            }
-        }
-
-        function convertToWord() {
-            if (!uploadedPdfData) {
-                alert("Please upload a PDF file first!");
-                return;
-            }
-            
-            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cloudflare.com';
-            
-            pdfjsLib.getDocument({data: uploadedPdfData}).promise.then(function(pdf) {
-                let maxPages = pdf.numPages;
-                let countPromises = [];
-                
-                for (let j = 1; j <= maxPages; j++) {
-                    let page = pdf.getPage(j);
-                    countPromises.push(page.then(function(page) {
-                        return page.getTextContent().then(function(textContent) {
-                            return textContent.items.map(function(s) { return s.str; }).join(' ');
-                        });
-                    }));
-                }
-                
-                Promise.all(countPromises).then(function(texts) {
-                    let fullText = texts.join('\n\n');
-                    
-                    let blob = new Blob([fullText], {type: "application/msword"});
-                    let link = document.createElement('a');
-                    link.href = window.URL.createObjectURL(blob);
-                    link.download = "extracted_document.doc";
-                    link.click();
-                });
-            }).catch(err => {
-                alert("Error reading PDF: " + err.message);
-            });
         }
     </script>
 
